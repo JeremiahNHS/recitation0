@@ -1,8 +1,9 @@
 # Recitation 0 — Git, IntelliJ, and your first Java program
 
 By the end of this hour you will have written one line of Java, watched a test go from
-red to green, and pushed the result to GitHub. That loop — **write, test, commit, push**
-— is every assignment in this course, and most of a software job.
+red to green, pushed the result to GitHub, and committed a class diagram of an object of
+your own choosing. That loop — **write, test, commit, push** — is every assignment in
+this course, and most of a software job.
 
 Follow the steps in order. If something goes wrong, the troubleshooting table at the
 bottom covers what actually goes wrong.
@@ -173,9 +174,77 @@ That round trip — your machine to GitHub — is how you hand in everything thi
 
 ---
 
-## Part 6 — Hand in your GitHub username
+## Part 6 — Draw your first class diagram
 
-**17.** Submit your GitHub username using the form your instructor gives you in class.
+You have spent two lectures on what an object *is* — identity, state, behavior — and on
+deciding when one object should be two. Now you write one down.
+
+**17.** In the project panel, open **`design.md`**. It is a fill-in-the-blanks file.
+
+**18.** Answer the first three sections about **one real object from your own life** —
+the one from Tuesday's exit ticket works perfectly. A library card, a vending machine,
+your car. Not something from a program.
+
+The third question is the one that matters:
+
+> **Its one responsibility** — one sentence, starting with a verb. If you need the word
+> "and", you are probably looking at two objects.
+
+That is Thursday's Single Responsibility idea, applied to something you already
+understand.
+
+**19.** Now the diagram. Find the `mermaid` block in `design.md` and replace `Example`
+with your object.
+
+```
+classDiagram
+    class VendingMachine {
+        String location
+        int itemsRemaining
+        dispense(String) void
+        isEmpty() boolean
+    }
+```
+
+Three rules, and that is genuinely all of it for today:
+
+| Rule | |
+|---|---|
+| Every diagram starts with `classDiagram` | then `class YourName { ... }` |
+| **State goes on top** | written `type name` — same order as Java |
+| **Behavior goes underneath** | ends in `()`, and the return type goes **after**: `isEmpty() boolean` |
+
+> That last one is backwards from Java and it trips everyone up exactly once. It is the
+> UML convention, not a typo.
+
+**20.** To experiment without pushing, paste your block into
+[mermaid.live](https://mermaid.live) and watch it draw as you type. When it looks right,
+put it back in `design.md`.
+
+> **Why write a picture as text?** Because it lives in the repo next to the code it
+> describes, so when the code changes the diagram is right there to change with it. A
+> diagram in a slide deck goes stale the day after you draw it.
+
+---
+
+## Part 7 — Commit and push again
+
+**21.** Same loop as before: **Commit** tab, tick `design.md`, write a message, **Commit
+and Push**.
+
+**22.** Open your repository on GitHub and click `design.md`.
+
+**GitHub drew your diagram.** You wrote text; the picture came for free, and anyone who
+opens your repo sees it.
+
+That is the second time you have run write → test → commit → push in one session. It is
+the loop for the rest of the semester.
+
+---
+
+## Part 8 — Hand in your GitHub username
+
+**23.** Submit your GitHub username using the form your instructor gives you in class.
 
 This one matters more than it looks: every repository you receive for the rest of the
 term is named after your GitHub username. If we do not have it, you do not get the
@@ -185,8 +254,39 @@ assignment.
 
 ## Congratulations
 
-You have written, tested, committed, and pushed Java. Next week the syntax starts making
-sense — beginning with that `main` on Sep 3.
+You have written, tested, committed, and pushed Java, and you have committed a class
+diagram of your own object. Next week the syntax starts making sense — beginning with
+that `main` on Sep 3.
+
+---
+
+## Take-home — get yourself a tank
+
+Optional, ungraded, and the most fun thing in this course.
+
+**Robocode** is a game where you write a Java class and it becomes a tank that fights
+other people's tanks. There is a tournament on the last day of class.
+
+> https://github.com/DSU-CSCI-121-F26/robocode-arena
+
+Fork it and follow its README. You will need to install Robocode itself — a separate
+download, which is why it is not part of today's session. Budget twenty minutes.
+
+Your first change is one number, and you do not need any Java you have not seen:
+
+```
+./tourney init <your-github-username> ThunderTank
+```
+
+Then open your bot, change `MOVE_DISTANCE` from `100` to `20`, and run:
+
+```
+./tourney
+```
+
+Watch the scoreboard. Change it to `400`. Watch again. That is a variable changing the
+behavior of a program, which is most of what Chapter 2 is about — and you got there
+before we taught it.
 
 ---
 
@@ -203,6 +303,9 @@ sense — beginning with that `main` on Sep 3.
 | IntelliJ shows no `pom.xml` / no Maven panel | You cloned into the wrong folder, or cloned the wrong repo. Check you used **your** copy's URL |
 | "Log In with GitHub" does nothing | Use the token fallback below |
 | Push is rejected | You are pushing to the template instead of your own copy. Check **Settings → Version Control → Remotes** points at *your* username |
+| The diagram does not render on GitHub | The block must open with three backticks followed by `mermaid`, and the first line inside must be `classDiagram`. Check both, then reload |
+| The diagram renders but is empty | You have `class Name` with nothing after it, or your braces do not match. Paste it into [mermaid.live](https://mermaid.live) — it points at the exact line |
+| `design.md` looks like plain text in IntelliJ | Normal. IntelliJ does not draw Mermaid without a plugin. Push it and look on GitHub |
 
 ---
 
