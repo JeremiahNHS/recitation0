@@ -1,9 +1,24 @@
-# Project exclude paths
-/build/
-/.gradle/
-/.idea/
-/.git/
-/gradle/
+### Instructor solutions - MUST stay ignored ###
 /solution/
-gradle*
+
+### Maven ###
+target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+bin/
+
+### VS Code ###
+.vscode/
+
+### macOS ###
 .DS_Store
