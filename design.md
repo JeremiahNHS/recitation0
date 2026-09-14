@@ -4,18 +4,15 @@ Fill this in during Recitation 0. Everything in angle brackets is yours to repla
 
 ## The object
 
-<Which object? Pick a real thing from your own life — the one from Tuesday's exit
-ticket is perfect. Not a thing from a program.>
+<The washing machine in my dorm .>
 
 ## Its identity
 
-<What makes this one different from every other one like it? A serial number, a name,
-a seat number — whatever makes it *this* one and not a copy.>
+<The serial number at the top, 2205012078.>
 
 ## Its one responsibility
 
-<One sentence, starting with a verb. If you need the word "and", you are probably
-looking at two objects.>
+<Its responsibility is to clean dirty laundery .>
 
 ## Class diagram
 
@@ -23,15 +20,14 @@ Replace `Example` below with your object. **State on top, behavior underneath.**
 
 ```mermaid
 classDiagram
-    class Example {
-        String owner
-        int count
-        doThing() void
-        isReady() boolean
+    class WashingMachine {
+        String status
+        int minutesLeft
+        start() void
+        isAvailable() boolean
     }
 ```
 
 ## What I am unsure about
 
-<Anything you could not decide. Say so plainly — this is graded as honesty, not as
-weakness.>
+<Weather if the door is locked or unlocked is part of the state or behavior .>
